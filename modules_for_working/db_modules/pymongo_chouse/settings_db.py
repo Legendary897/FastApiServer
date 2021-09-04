@@ -1,0 +1,4 @@
+settings = {
+    "host": "localhost",
+    "port": 27017
+}
