@@ -1,2 +1,2 @@
 # FastApiServer
-First stap in FastApi
+First step in FastApi
