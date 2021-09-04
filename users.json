@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "613345ac26213193620b6104"
+  },
+  "username": "admin",
+  "password": "$2b$12$SVxgkA.cWodeNh9geTj.fe8HG6Ul3tPvRZREQcFhMj6ack.rAdspC",
+  "role": 1,
+  "user_data": {
+    "name": "Ivan",
+    "surname": "Ivanov",
+    "old": 23
+  }
+},{
+  "_id": {
+    "$oid": "613348b8038c98daf6ecf8f1"
+  },
+  "username": "test1",
+  "password": "$2b$12$f4d.i69em1p/aXEiFkGfGORNF1zvZyVxp7LwnrmrXuu/FkCVoJagm",
+  "role": 0,
+  "user_data": {
+    "name": "Ivan",
+    "surname": "Ivanov",
+    "old": 23
+  }
+},{
+  "_id": {
+    "$oid": "61338544b52d96135730ec94"
+  },
+  "username": "test4",
+  "password": "$2b$12$wurGWBXzNgkCc68M..9usus6z4gTU7M6Lc/2aYNc3ZxB4wyeCyCeK",
+  "role": 0,
+  "user_data": {
+    "name": "Sergey",
+    "surname": "Shalykin",
+    "old": 25
+  }
+},{
+  "_id": {
+    "$oid": "6133872547f602479a3fe6e7"
+  },
+  "username": "test5",
+  "password": "$2b$12$wPkoqKKWblUd8Fr7jmISMuYLQalMv4EAgOxYZmbMy4RLxEUUmhqPO",
+  "role": 0,
+  "user_data": {
+    "name": "Alexey",
+    "surname": "Shuvalov",
+    "old": 25
+  }
+}]
