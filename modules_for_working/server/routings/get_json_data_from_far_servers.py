@@ -32,7 +32,18 @@ def get_info_from_json():
     t1.join()
     t2.join()
     t3.join()
-    ans = {**list_data[0], **list_data[1], **list_data[2]}
-    sorted_tuples = sorted(ans.items(), key=lambda x: x[0])
-    ans = dict(sorted_tuples)
-    return ans
+    print(len(list_data))
+    print(list_data)
+    if len(list_data) > 0:
+        if len(list_data) == 3:
+            ans = {**list_data[0], **list_data[1], **list_data[2]}
+        elif len(list_data) == 2:
+            ans = {**list_data[0], **list_data[1]}
+        else:
+            ans = {**list_data[0]}
+        sorted_tuples = sorted(ans.items(), key=lambda x: x[0])
+        ans = dict(sorted_tuples)
+        list_data.clear()
+        return ans
+    else:
+        return {"data": "empty"}
