@@ -40,11 +40,14 @@ class AuthHand(object):
         return self._decode_token(auth.credentials)
 
     def auth_shared_access(self, auth: HTTPAuthorizationCredentials = Security(HTTPBearer())):
-        role = self._decode_token(auth.credentials)
+        role = self._decode_token(auth.credentials)["sub2"]
         if role == 1:
             return True
         else:
             return False
+
+    def auth_shared_access_delete(self, auth: HTTPAuthorizationCredentials = Security(HTTPBearer())):
+        return self._decode_token(auth.credentials)
 
     def _encode_token(self, username, role):
         payload = {
@@ -61,7 +64,7 @@ class AuthHand(object):
 
     def _decode_token(self, token):
         try:
-            return jwt.decode(token, self.secret, algorithms=['HS256'])["sub2"]
+            return jwt.decode(token, self.secret, algorithms=['HS256'])
         except jwt.ExpiredSignatureError:
             raise HTTPException(status_code=401, detail='Signature has expired')
         except jwt.InvalidTokenError:

@@ -1,3 +1,5 @@
+from fastapi import HTTPException
+
 from modules_for_working.db_modules.pymongo_chouse.db_connect import DBConnect as db
 
 
@@ -23,5 +25,9 @@ class DataFlowWithDB(object):
     def add_new_user(self, user):
         self.db.work_collection.insert_one(user)
 
-    def delete_cur_user(self, _id):
-        self.db.work_collection.delete_one({"_id": _id})
+    def delete_cur_user(self, _id, username):
+        user = self.db.work_collection.find_one({"_id": _id}, {"username": 1})
+        if user["username"] == username:
+            raise HTTPException(status_code=400, detail="You can't delete yourself")
+        else:
+            self.db.work_collection.delete_one({"_id": _id})

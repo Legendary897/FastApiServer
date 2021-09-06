@@ -1,3 +1,5 @@
+from fastapi import HTTPException
+
 from modules_for_working.db_modules.mongoegine_chouse.db_connect import DBConnect
 from modules_for_working.db_modules.mongoegine_chouse.models_mongo_engine.users import Users
 import json
@@ -31,5 +33,9 @@ class DataFlowWithDB(object):
         new_user.save()
 
     @staticmethod
-    def delete_cur_user(_id):
-        Users.objects(id=_id).delete()
+    def delete_cur_user(_id, username):
+        user = Users.objects(id=_id)[0]
+        if user.username == username:
+            raise HTTPException(status_code=400, detail="You can't delete yourself")
+        else:
+            Users.objects(id=_id).delete()

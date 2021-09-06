@@ -24,9 +24,9 @@ def get_all_users(_=Depends(auth_handler.auth_wrapper)):
 
 
 @route_for_data_users.post("/delete_user")
-def delete_user(_id: str, flag_access=Depends(auth_handler.auth_shared_access)):
-    if flag_access:
-        db().delete_cur_user(TryReformatId.reformat_id(_id))
+def delete_user(_id: str, token=Depends(auth_handler.auth_shared_access_delete)):
+    if token["sub2"] == 1:
+        db().delete_cur_user(TryReformatId.reformat_id(_id), token["sub1"])
         return {"ans": "Ok!"}
     raise HTTPException(status_code=400, detail='Not enough access rights')
 
