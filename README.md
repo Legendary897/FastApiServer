@@ -10,7 +10,14 @@ First step in FastApi
 5. If you want to change the application settings edit the file "modules_for_working/server/settings_server.py"
 
 #Run application for demonstation
+
 1. Run database server by MongoDB on localhost port=27017(default)
 2. Run manage_application.py
 3. Run three test-server-app from far_server: server1.py, server2.py, server3.py on ports 3001, 3002, 3003
 4. For view works routings go to localhost:5000/docs in your browser
+
+#Info data to login
+
+User with extended rights-login:admin, pass:1234
+
+User without extended rights-login:test1, pass:1234
