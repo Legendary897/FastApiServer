@@ -1,5 +1,5 @@
 from mongoengine import *
-from modules_for_working.models.model_for_mongo import UserData
+from modules_for_working.models.creator_model_for_mongo import UserData
 
 
 class UserData(EmbeddedDocument):

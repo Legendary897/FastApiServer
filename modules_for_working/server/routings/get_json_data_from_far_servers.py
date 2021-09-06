@@ -7,6 +7,7 @@ route_for_json_data = APIRouter()
 list_data = []
 
 
+# func for getting information from one of the test servers
 def get_json(port):
     try:
         connection = http.client.HTTPConnection('localhost', port, timeout=2)
@@ -21,6 +22,7 @@ def get_json(port):
         print("Empty_data")
 
 
+# demo parallel with threads
 @route_for_json_data.get("/get_info")
 def get_info_from_json():
     t1 = Thread(target=get_json, args={3001})
@@ -32,8 +34,6 @@ def get_info_from_json():
     t1.join()
     t2.join()
     t3.join()
-    print(len(list_data))
-    print(list_data)
     if len(list_data) > 0:
         if len(list_data) == 3:
             ans = {**list_data[0], **list_data[1], **list_data[2]}

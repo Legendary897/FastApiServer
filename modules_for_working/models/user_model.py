@@ -21,5 +21,5 @@ class UserForAuth(BaseModel):
 class UserAddForAdmin(BaseModel):
     username: str
     password: str
-    role: int
+    role: int # 1 - admin, 0 - blank user
     user_data: UserData

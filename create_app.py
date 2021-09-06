@@ -6,7 +6,10 @@ from modules_for_working.server.routings.get_json_data_from_far_servers import r
 
 def init_app():
     app = FastAPI()
+    # routing's for auth
     app.include_router(route_login)
+    # routing's for work with db users(show list user, delete user, change data user, add new user)
     app.include_router(route_for_data_users)
+    # routing's for demonstration parallel request's
     app.include_router(route_for_json_data)
     return app

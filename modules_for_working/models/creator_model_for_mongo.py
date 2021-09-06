@@ -1,7 +1,7 @@
 from modules_for_working.models.user_model import User, UserAddForAdmin, UserData
 
 
-class UserForMongo(object):
+class CreatorUserForMongo(object):
 
     @staticmethod
     def create_spec_data_format_registration(user_detail: User):

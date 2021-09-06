@@ -5,7 +5,7 @@ from passlib.context import CryptContext
 from datetime import datetime, timedelta
 # from modules_for_working.db_modules.pymongo_chouse.work_with_db import DataFlowWithDB as db
 from modules_for_working.db_modules.mongoegine_chouse.work_with_db import DataFlowWithDB as db
-from modules_for_working.models.model_for_mongo import UserForMongo as model_db
+from modules_for_working.models.creator_model_for_mongo import CreatorUserForMongo as model_db
 from modules_for_working.models.user_model import User
 
 
@@ -50,6 +50,7 @@ class AuthHand(object):
         return self._decode_token(auth.credentials)
 
     def _encode_token(self, username, role):
+        # "username" and "role" were placed in the jwt
         payload = {
             'exp': datetime.utcnow() + timedelta(days=0, minutes=5),
             'iat': datetime.utcnow(),
