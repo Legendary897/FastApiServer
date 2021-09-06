@@ -19,5 +19,4 @@ First step in FastApi
 #Info data to login
 
 User with extended rights-login:admin, pass:1234
-
 User without extended rights-login:test1, pass:1234
